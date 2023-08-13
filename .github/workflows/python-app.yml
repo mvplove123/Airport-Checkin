@@ -9,8 +9,7 @@ on:
 #  pull_request:
 #    branches: [ "main" ]
   schedule:
-      - branches: [ "main" ]
-      - cron: '35 * * * *'  # 在每天的UTC 00:00执行
+      - cron: '10 * * * *'  # 在每天的UTC 00:00执行
 
 permissions:
   contents: read
