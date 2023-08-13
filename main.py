@@ -3,12 +3,12 @@ import json
 import os
 
 requests.packages.urllib3.disable_warnings()
-SCKEY = os.environ.get('SCKEY')
-TG_BOT_TOKEN = os.environ.get('TGBOT')
-TG_USER_ID = os.environ.get('TGUSERID')
-EMAIL = os.environ.get('EMAIL')
-BASE_URL = os.environ.get('EMAIL')
-PASSWORD = os.environ.get('PASSWORD')
+SCKEY = os.getenv('SCKEY')
+TG_BOT_TOKEN = os.getenv('TGBOT')
+TG_USER_ID = os.getenv('TGUSERID')
+EMAIL = os.getenv('EMAIL')
+BASE_URL = os.getenv('BASE_URL')
+PASSWORD = os.getenv('PASSWORD')
 
 
 # SCKEY = 'SCT219702TyX9Uh5TmRAiwfYkMOGwA83Y4'
