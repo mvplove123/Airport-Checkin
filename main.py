@@ -3,13 +3,22 @@ import json
 import os
 
 requests.packages.urllib3.disable_warnings()
-SCKEY = os.environ.get('SCKEY')
-TG_BOT_TOKEN = os.environ.get('TGBOT')
-TG_USER_ID = os.environ.get('TGUSERID')
+# SCKEY = os.environ.get('SCKEY')
+# TG_BOT_TOKEN = os.environ.get('TGBOT')
+# TG_USER_ID = os.environ.get('TGUSERID')
+# EMAIL = os.environ.get('EMAIL')
+# BASE_URL = os.environ.get('EMAIL')
+# PASSWORD = os.environ.get('PASSWORD')
 
 
-def checkin(email=os.environ.get('EMAIL'), password=os.environ.get('PASSWORD'),
-            base_url=os.environ.get('BASE_URL'), ):
+SCKEY = 'SCT219702TyX9Uh5TmRAiwfYkMOGwA83Y4'
+TG_BOT_TOKEN = '6546559344:AAFg4S0B5mbe8Xdet0bUDslE6Ir9IHPdK8I'
+TG_USER_ID = '5729891237'
+EMAIL = 'mvplove123@163.com'
+BASE_URL = 'https://ikuuu.art/'
+PASSWORD = 'Tao@278867066'
+def checkin(email=EMAIL, password=PASSWORD,
+            base_url=BASE_URL, ):
     email = email.split('@')
     email = email[0] + '%40' + email[1]
     session = requests.session()
