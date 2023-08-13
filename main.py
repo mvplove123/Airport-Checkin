@@ -10,13 +10,6 @@ EMAIL = os.environ.get('EMAIL')
 BASE_URL = os.environ.get('BASE_URL')
 PASSWORD = os.environ.get('PASSWORD')
 
-
-# SCKEY = 'SCT219702TyX9Uh5TmRAiwfYkMOGwA83Y4'
-# TG_BOT_TOKEN = '6546559344:AAFg4S0B5mbe8Xdet0bUDslE6Ir9IHPdK8I'
-# TG_USER_ID = '5729891237'
-# EMAIL = 'mvplove123@163.com'
-# BASE_URL = 'https://ikuuu.art/'
-# PASSWORD = 'Tao@278867066'
 def checkin(email=EMAIL, password=PASSWORD,
             base_url=BASE_URL, ):
 
