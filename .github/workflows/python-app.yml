@@ -4,12 +4,12 @@
 name: Python application
 
 on:
-#  push:
-#    branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
-  schedule:
-      - cron: '30 22 * * *'  # 在每天的UTC 00:00执行
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+#  schedule:
+#      - cron: '30 22 * * *'  # 在每天的UTC 00:00执行
 
 permissions:
   contents: read
