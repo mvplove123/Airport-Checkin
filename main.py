@@ -10,8 +10,7 @@ EMAIL = os.environ.get('EMAIL')
 BASE_URL = os.environ.get('BASE_URL')
 PASSWORD = os.environ.get('PASSWORD')
 
-def checkin(email=EMAIL, password=PASSWORD,
-            base_url=BASE_URL, ):
+def checkin(email, password,base_url=BASE_URL, ):
 
     print(email)
     email = email.split('@')
@@ -41,10 +40,21 @@ def checkin(email=EMAIL, password=PASSWORD,
     return response['msg']
 
 
-result = checkin()
-if SCKEY != '':
-    sendurl = 'https://sctapi.ftqq.com/' + SCKEY + '.send?title=机场签到&desp=' + result
-    r = requests.get(url=sendurl)
-if TG_USER_ID != '':
-    sendurl = f'https://api.telegram.org/bot{TG_BOT_TOKEN}/sendMessage?chat_id={TG_USER_ID}&text={result}&disable_web_page_preview=True'
-    r = requests.get(url=sendurl)
+def output(username,password):
+    result = checkin(email=username,password=password)
+    if SCKEY != '':
+        sendurl = 'https://sctapi.ftqq.com/' + SCKEY + '.send?title=机场签到&desp=' + result
+        r = requests.get(url=sendurl)
+    if TG_USER_ID != '':
+        sendurl = f'https://api.telegram.org/bot{TG_BOT_TOKEN}/sendMessage?chat_id={TG_USER_ID}&text={result}&disable_web_page_preview=True'
+        r = requests.get(url=sendurl)
+
+
+def auto_check():
+    emails = EMAIL.split(",")
+    for email in emails:
+        username = email.split("#")[0]
+        password = email.split("#")[1]
+        output(username,password)
+
+auto_check()
