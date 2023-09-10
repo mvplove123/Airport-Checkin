@@ -10,6 +10,7 @@ EMAIL = os.environ.get('EMAIL')
 BASE_URL = os.environ.get('BASE_URL')
 PASSWORD = os.environ.get('PASSWORD')
 
+
 def checkin(email, password,base_url=BASE_URL, ):
 
     print(email)
@@ -37,7 +38,7 @@ def checkin(email, password,base_url=BASE_URL, ):
                             verify=False)
     response = json.loads(response.text)
     print(response['msg'])
-    return response['msg']
+    return email+response['msg']
 
 
 def output(username,password):
