@@ -4,12 +4,10 @@
 name: Python application
 
 on:
-#  push:
-#    branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
   schedule:
-      - cron: '17 23 * * *'  # 在每天的UTC 00:00执行
+      - cron: '17 23 * * *'  # UTC TIME CONVERT https://datetime360.com/cn/utc-beijing-time/
 
 permissions:
   contents: read
