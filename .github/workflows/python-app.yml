@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "main" ]
   schedule:
-      - cron: '17 23 * * *'  # UTC TIME CONVERT https://datetime360.com/cn/utc-beijing-time/
+      - cron: '30 23 * * *'  # UTC TIME CONVERT https://www.timebie.com/cn/universalbeijing.php
 
 permissions:
   contents: read
