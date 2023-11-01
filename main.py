@@ -1,3 +1,5 @@
+import re
+
 import requests
 import json
 import os
@@ -10,12 +12,21 @@ EMAIL = os.environ.get('EMAIL')
 BASE_URL = os.environ.get('BASE_URL')
 PASSWORD = os.environ.get('PASSWORD')
 
-
-def checkin(email, password,base_url=BASE_URL, ):
-
+def checkin(email, password, real_domain=BASE_URL, ):
     print(email)
     email = email.split('@')
     email = email[0] + '%40' + email[1]
+
+    html = requests.get(real_domain).text
+
+    domain_pattern = r'<a href="(https://[^"]+)/" target="_blank">'
+    domains = re.findall(domain_pattern, html)
+
+    if domains:
+        base_url = domains[0]
+    else:
+        base_url = 'https://ikuuu.boo/'
+
     session = requests.session()
     session.get(base_url, verify=False)
     login_url = base_url + '/auth/login'
@@ -38,11 +49,11 @@ def checkin(email, password,base_url=BASE_URL, ):
                             verify=False)
     response = json.loads(response.text)
     print(response['msg'])
-    return email+response['msg']
+    return email + response['msg']
 
 
-def output(username,password):
-    result = checkin(email=username,password=password)
+def output(username, password):
+    result = checkin(email=username, password=password)
     if SCKEY != '':
         sendurl = 'https://sctapi.ftqq.com/' + SCKEY + '.send?title=机场签到&desp=' + result
         r = requests.get(url=sendurl)
@@ -56,6 +67,7 @@ def auto_check():
     for email in emails:
         username = email.split("#")[0]
         password = email.split("#")[1]
-        output(username,password)
+        output(username, password)
+
 
 auto_check()
